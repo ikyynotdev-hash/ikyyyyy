@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "*.js", "use": "@vercel/node" }
+  ],
+  "routes": [
+    { "src": "/", "dest": "/index.js" },
+    { "src": "/api-subfinder", "dest": "/api-subfinder.js" },
+    { "src": "/api-play", "dest": "/api-play.js" },
+    { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" }
+  ]
+}
