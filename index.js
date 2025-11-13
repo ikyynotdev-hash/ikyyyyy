@@ -8,9 +8,12 @@ app.get("/", (req, res) => {
   res.json({
     status: true,
     message: "Welcome to Ikyy REST API 🚀",
+    Creator: "IkyyOfficiall",
     routes: [
       "/api-subfinder?domain=",
       "/api-play?url=",
+      "/api-googleimage?query=",
+      "/api-toanime?imageUrl=",
       "/api-randomquotes"
     ]
   })
