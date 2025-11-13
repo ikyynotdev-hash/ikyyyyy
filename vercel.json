@@ -7,6 +7,7 @@
     { "src": "/", "dest": "/index.js" },
     { "src": "/api-subfinder", "dest": "/api-subfinder.js" },
     { "src": "/api-play", "dest": "/api-play.js" },
+    { "src": "/api-googleimage", "dest": "/api-googleimage.js" },
     { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" }
   ]
 }
