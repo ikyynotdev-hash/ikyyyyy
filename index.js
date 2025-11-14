@@ -17,7 +17,8 @@ app.get("/", (req, res) => {
       "/api-tiktoksearch?query=",
       "/api-randomquotes",
       "/api-brat?text=",
-      "/api-web2zip?url="
+      "/api-web2zip?url=",
+      "/api-kimiai?query="
     ]
   })
 })
