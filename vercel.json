@@ -10,6 +10,7 @@
     { "src": "/api-googleimage", "dest": "/api-googleimage.js" },
     { "src": "/api-toanime", "dest": "/api-toanime.js" },
     { "src": "/api-tiktoksearch", "dest": "/api-tiktoksearch.js" },
+    { "src": "/api-brat", "dest": "/api-brat.js" },
     { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" }
   ]
 }
