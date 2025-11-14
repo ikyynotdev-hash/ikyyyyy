@@ -12,6 +12,7 @@
     { "src": "/api-tiktoksearch", "dest": "/api-tiktoksearch.js" },
     { "src": "/api-brat", "dest": "/api-brat.js" },
     { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" },
-    { "src": "/api-web2zip", "dest": "/api-web2zip.js" }
+    { "src": "/api-web2zip", "dest": "/api-web2zip.js" },
+    { "src": "/api-kimiai", "dest": "/api-kimiai.js" }
   ]
 }
