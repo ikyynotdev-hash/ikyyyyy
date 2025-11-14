@@ -18,7 +18,8 @@ app.get("/", (req, res) => {
       "/api-randomquotes",
       "/api-brat?text=",
       "/api-web2zip?url=",
-      "/api-kimiai?query="
+      "/api-kimiai?query=",
+      "/api-asahotak",
     ]
   })
 })
