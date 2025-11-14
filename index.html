@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikyy RestAPI UI</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0d1117;
+      color: #e6edf3;
+    }
+    header {
+      background: #161b22;
+      padding: 20px;
+      text-align: center;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 1px solid #30363d;
+    }
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .api-card {
+      background: #161b22;
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #30363d;
+    }
+    .api-card h2 {
+      margin-top: 0;
+      color: #58a6ff;
+    }
+    .endpoint {
+      background: #0d1117;
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid #30363d;
+      font-family: monospace;
+    }
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #555;
+      margin-top: 40px;
+    }
+    a {
+      color: #58a6ff;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+  <header>Ikyy RestAPI • Documentation UI</header>
+  <div class="container"><div class="api-card">
+  <h2>📦 Web to ZIP</h2>
+  <p>Convert website menjadi file ZIP.</p>
+  <div class="endpoint">GET /api-web2zip?url=https://example.com</div>
+  <p>Contoh:</p>
+  <div class="endpoint">https://ikyyyyy-officiall-api.vercel.app/api-web2zip?url=https://siputzx.my.id/store</div>
+</div>
+
+<div class="api-card">
+  <h2>🖼 Brat Canvas</h2>
+  <p>Membuat gambar brat dengan teks custom.</p>
+  <div class="endpoint">GET /api-brat?text=haii</div>
+</div>
+
+<div class="api-card">
+  <h2>🔍 Google Image Search</h2>
+  <p>Cari gambar dari Google.</p>
+  <div class="endpoint">GET /api-googleimage?query=kucing</div>
+</div>
+
+<div class="api-card">
+  <h2>🎵 Search Play Music</h2>
+  <p>Cari lagu dan dapatkan file audio.</p>
+  <div class="endpoint">GET /api-play?query=dj+wahai+sahabatku</div>
+</div>
+
+<div class="api-card">
+  <h2>🎥 TikTok Search</h2>
+  <p>Cari video TikTok dan dapatkan media.</p>
+  <div class="endpoint">GET /api-tiktoksearch?query=wahai+sahabatku</div>
+</div>
+
+<div class="footer">Made by Ikyy • 2025</div>
+
+  </div>
+</body>
+  </html>
