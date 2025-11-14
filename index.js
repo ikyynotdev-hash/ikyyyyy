@@ -16,7 +16,8 @@ app.get("/", (req, res) => {
       "/api-toanime?imageUrl=",
       "/api-tiktoksearch?query=",
       "/api-randomquotes",
-      "/api-brat?text="
+      "/api-brat?text=",
+      "/api-web2zip?url="
     ]
   })
 })
