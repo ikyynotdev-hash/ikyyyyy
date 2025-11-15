@@ -14,6 +14,7 @@
     { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" },
     { "src": "/api-web2zip", "dest": "/api-web2zip.js" },
     { "src": "/api-kimiai", "dest": "/api-kimiai.js" },
-    { "src": "/api-asahotak", "dest": "/api-asahotak.js" }
+    { "src": "/api-asahotak", "dest": "/api-asahotak.js" },
+    { "src": "/api-githubstalk", "dest": "/api-githubstalk.js" }
   ]
 }
