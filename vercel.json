@@ -1,21 +1,12 @@
 {
   "version": 2,
   "builds": [
-    { "src": "*.js", "use": "@vercel/node" }
+    { "src": "*.js", "use": "@vercel/node" },
+    { "src": "index.html", "use": "@vercel/static" }
   ],
   "routes": [
-    { "src": "/", "dest": "/index.js" },
-    { "src": "/api-subfinder", "dest": "/api-subfinder.js" },
-    { "src": "/api-play", "dest": "/api-play.js" },
-    { "src": "/api-googleimage", "dest": "/api-googleimage.js" },
-    { "src": "/api-toanime", "dest": "/api-toanime.js" },
-    { "src": "/api-tiktoksearch", "dest": "/api-tiktoksearch.js" },
-    { "src": "/api-brat", "dest": "/api-brat.js" },
-    { "src": "/api-randomquotes", "dest": "/api-randomquotes.js" },
-    { "src": "/api-web2zip", "dest": "/api-web2zip.js" },
-    { "src": "/api-kimiai", "dest": "/api-kimiai.js" },
-    { "src": "/api-asahotak", "dest": "/api-asahotak.js" },
-    { "src": "/api-githubstalk", "dest": "/api-githubstalk.js" },
-    { "src": "/api-pinterest", "dest": "/api-pinterest.js" }
+    { "src": "/api-(.*)", "dest": "/api-$1.js" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
