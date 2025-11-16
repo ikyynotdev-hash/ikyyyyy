@@ -20,7 +20,8 @@ app.get("/", (req, res) => {
       "/api-web2zip?url=",
       "/api-kimiai?query=",
       "/api-asahotak",
-      "/api-githubstalk"
+      "/api-githubstalk",
+      "/api-pinterest?query"
     ]
   })
 })
