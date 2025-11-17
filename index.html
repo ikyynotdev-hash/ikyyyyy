@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ikyy RestAPI UI</title>
+  <style>
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --text: #e6edf3;
+      --border: #30363d;
+      --accent: #58a6ff;
+    }
+    body.light {
+      --bg: #f5f5f5;
+      --bg2: #ffffff;
+      --text: #222;
+      --border: #ccc;
+      --accent: #0070f3;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.25s;
+    }
+    header {
+      background: var(--bg2);
+      padding: 20px;
+      font-size: 24px;
+      font-weight: bold;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* -----------------------
+       iOS Capsule Toggle
+    ------------------------ */
+    .ios-toggle {
+      position: relative;
+      display: inline-block;
+      width: 55px;
+      height: 30px;
+    }
+    .ios-toggle input {
+      display: none;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #555;
+      border-radius: 30px;
+      transition: 0.3s;
+    }
+    .slider:before {
+      content: "";
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      left: 3px;
+      top: 3px;
+      background: white;
+      border-radius: 50%;
+      transition: 0.3s;
+    }
+    input:checked + .slider {
+      background: #34c759; /* iOS green */
+    }
+    input:checked + .slider:before {
+      transform: translateX(25px);
+    }
+
+    .container {
+      padding: 30px;
+      max-width: 900px;
+      margin: auto;
+    }
+    .api-card {
+      background: var(--bg2);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      border: 1px solid var(--border);
+    }
+    .api-card h2 {
+      color: var(--accent);
+      margin-top: 0;
+    }
+    .endpoint {
+      background: var(--bg);
+      padding: 10px;
+      border-radius: 6px;
+      overflow-x: auto;
+      border: 1px solid var(--border);
+      font-family: monospace;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 12px;
+      background: var(--accent);
+      color: #fff;
+      padding: 3px 7px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    pre {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px;
+      color: #777;
+      margin-top: 40px;
+    }
+
+    input,
+    button {
+      font-size: 16px;
+    }
+
+    .ping {
+      margin-top: 10px;
+      padding: 10px;
+      background: #238636;
+      border-radius: 6px;
+      text-align: center;
+      color: white;
+      cursor: pointer;
+    }
+
+    /* Copy JSON button */
+    .result-box {
+      position: relative;
+    }
+    .copy-result {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      font-size: 12px;
+      background: var(--accent);
+      color: #fff;
+      padding: 3px 7px;
+      border-radius: 4px;
+      cursor: pointer;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    Ikyy RestAPI • Documentation UI
+
+    <!-- iOS Capsule Toggle -->
+    <label class="ios-toggle">
+      <input type="checkbox" id="themeSwitch" onclick="toggleTheme()">
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <div class="container">
+    
+    <div class="api-card">
+      <h2>🧪 API Tester</h2>
+      <p>Coba endpoint langsung di sini.</p>
+
+      <input id="apiInput" type="text" placeholder="Masukkan URL API..."
+        style="width:100%;padding:10px;border-radius:6px;border:1px solid var(--border);background:var(--bg);color:var(--text);">
+
+      <button onclick="testAPI()"
+        style="margin-top:10px;width:100%;padding:10px;border:none;border-radius:6px;background:#238636;color:white;font-size:16px;cursor:pointer;">Test API</button>
+
+      <div class="ping" onclick="pingAPI()">Ping API</div>
+
+      <div class="result-box">
+        <span id="copyJsonBtn" class="copy-result" onclick="copyJSON()">Copy</span>
+        <pre id="apiResult"
+          style="background:var(--bg);border:1px solid var(--border);margin-top:15px;padding:15px;border-radius:8px;overflow-x:auto;"></pre>
+      </div>
+    </div>
+
+    <div class="api-card">
+      <h2>📦 Web to ZIP</h2>
+      <div class="endpoint"><span class="copy-btn" onclick="copyText(this)">Copy</span>GET /api-web2zip?url=https://example.com</div>
+    </div>
+
+    <div class="api-card">
+      <h2>🖼 Brat Canvas</h2>
+      <div class="endpoint"><span class="copy-btn" onclick="copyText(this)">Copy</span>GET /api-brat?text=hai</div>
+    </div>
+
+    <div class="api-card">
+      <h2>🔍 Google Image Search</hh2>
+      <div class="endpoint"><span class="copy-btn" onclick="copyText(this)">Copy</span>GET /api-googleimage?query=kucing</div>
+    </div>
+
+    <div class="api-card">
+      <h2>🎵 Search Play Music</h2>
+      <div class="endpoint"><span class="copy-btn" onclick="copyText(this)">Copy</span>GET /api-play?query=dj+wahai+sahabatku</div>
+    </div>
+
+    <div class="api-card">
+      <h2>🎥 TikTok Search</h2>
+      <div class="endpoint"><span class="copy-btn" onclick="copyText(this)">Copy</span>GET /api-tiktoksearch?query=wahai+sahabatku</div>
+    </div>
+
+    <div class="footer">Made by Ikyy • 2025</div>
+  </div>
+
+  <script>
+    // Toggle Theme
+    function toggleTheme() {
+      document.body.classList.toggle('light');
+    }
+
+    function copyText(btn) {
+      const text = btn.parentElement.textContent.replace("Copy", "").trim();
+      navigator.clipboard.writeText(text);
+      btn.textContent = "Copied!";
+      setTimeout(() => (btn.textContent = "Copy"), 1200);
+    }
+
+    function showCopyBtn() {
+      document.getElementById("copyJsonBtn").style.display = "inline-block";
+    }
+
+    function hideCopyBtn() {
+      document.getElementById("copyJsonBtn").style.display = "none";
+    }
+
+    function copyJSON() {
+      const text = document.getElementById("apiResult").textContent;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById("copyJsonBtn");
+      btn.textContent = "Copied!";
+      setTimeout(() => (btn.textContent = "Copy"), 1200);
+    }
+
+    async function testAPI() {
+      const url = document.getElementById("apiInput").value;
+      const resultBox = document.getElementById("apiResult");
+      hideCopyBtn();
+
+      if (!url) {
+        resultBox.textContent = "Isi URL dulu.";
+        return;
+      }
+
+      resultBox.textContent = "Loading...";
+      try {
+        const res = await fetch(url);
+        const type = res.headers.get("content-type");
+
+        if (type && type.includes("application/json")) {
+          const json = await res.json();
+          resultBox.textContent = JSON.stringify(json, null, 2);
+        } else {
+          resultBox.textContent = await res.text();
+        }
+
+        showCopyBtn();
+      } catch (e) {
+        resultBox.textContent = "Error: " + e.message;
+      }
+    }
+
+    async function pingAPI() {
+      const url = document.getElementById("apiInput").value;
+      const resultBox = document.getElementById("apiResult");
+      hideCopyBtn();
+
+      if (!url) {
+        resultBox.textContent = "Isi URL dulu.";
+        return;
+      }
+
+      const start = performance.now();
+      try {
+        await fetch(url);
+        const ms = (performance.now() - start).toFixed(0);
+        resultBox.textContent = `Ping: ${ms} ms`;
+        showCopyBtn();
+      } catch {
+        resultBox.textContent = "Ping gagal.";
+      }
+    }
+  </script>
+</body>
+</html>
